@@ -1,7 +1,6 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "_note": "Vercel Cron automatically attaches 'Authorization: Bearer $CRON_SECRET' to the request. /api/apify/feeds reads that header — the token is never in the URL path and never leaks into access logs. Set CRON_SECRET in the Vercel dashboard.",
-  "crons": [
-    { "path": "/api/apify/feeds", "schedule": "0 */6 * * *" }
-  ]
+    "$schema": "https://openapi.vercel.sh/vercel.json",
+    "crons": [
+          { "path": "/api/apify/feeds", "schedule": "0 */6 * * *" }
+    ]
 }

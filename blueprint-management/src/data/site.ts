@@ -6,7 +6,7 @@ export const siteConfig = {
     "Blueprint is a UK-based boutique artist management company with over 50 years of experience, building careers — not headlines — for a select roster of world-class recording artists.",
   tagline: "Careers, not campaigns.",
   foundedYear: 1974,
-  founderName: "Matt Glover",
+  founderName: "John Glover",
   contact: {
     email: "butlerdarin@gmail.com",
     // Update in production
@@ -16,14 +16,14 @@ export const siteConfig = {
   nav: [
     { label: "Roster", href: "/roster" },
     { label: "About", href: "/about" },
-    { label: "Journal", href: "/blog" },
+    { label: "Legacy", href: "/legacy" },
     { label: "Contact", href: "/contact" }
   ],
   footerLinks: {
     company: [
       { label: "About Blueprint", href: "/about" },
       { label: "Our Roster", href: "/roster" },
-      { label: "Journal", href: "/blog" },
+      { label: "Legacy", href: "/legacy" },
       { label: "Contact", href: "/contact" }
     ],
     resources: [

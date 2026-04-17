@@ -107,7 +107,7 @@ export default function RootLayout({
       "@type": "PostalAddress",
       addressCountry: "GB"
     },
-    founder: { "@type": "Person", name: "Matt Glover" }
+    founder: { "@type": "Person", name: "John Glover" }
   };
 
   return (

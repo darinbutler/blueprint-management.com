@@ -37,7 +37,22 @@ const FALLBACKS: Record<string, string> = {
     "https://images.unsplash.com/photo-1501612780327-45045538702b?auto=format&fit=crop&w=1200&q=80",
   "artist-alison-limerick":
     "https://images.unsplash.com/photo-1516981879613-9f5da904015f?auto=format&fit=crop&w=1200&q=80",
-  "artist-nik-kershaw": "/roster/nik-kershaw.jpg"
+  "artist-nik-kershaw": "/roster/nik-kershaw.jpg",
+  // Legacy timeline — evocative black-and-white era shots
+  "legacy-hero":
+    "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=2400&q=80",
+  "legacy-1974":
+    "https://images.unsplash.com/photo-1453738773917-9c3eff1db985?auto=format&fit=crop&w=1600&q=80",
+  "legacy-1980s":
+    "https://images.unsplash.com/photo-1501612780327-45045538702b?auto=format&fit=crop&w=1600&q=80",
+  "legacy-1990s":
+    "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?auto=format&fit=crop&w=1600&q=80",
+  "legacy-2000s":
+    "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1600&q=80",
+  "legacy-2010s":
+    "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1600&q=80",
+  "legacy-today":
+    "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1600&q=80"
 };
 
 export function assetFor(

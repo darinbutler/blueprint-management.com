@@ -52,12 +52,17 @@ export default function AboutPage() {
               span decades, not album cycles.
             </p>
             <p>
-              Today, headed up by global industry veteran Matt Glover, Blueprint
+              Blueprint was founded in 1974 by industry legend{" "}
+              <strong>John Glover</strong>, who grew the business for over
+              fifty years alongside his wife <strong>Julie Glover</strong> and
+              son <strong>Matt Glover</strong>, with a tight team of music
+              management experts. Today, headed up by Matt, Blueprint
               exclusively represents a carefully chosen roster of recording
-              artists for management and agency: <strong>Alison Limerick</strong>,{" "}
+              artists for management and agency:{" "}
+              <strong>Alison Limerick</strong>,{" "}
               <strong>Tony Hadley (ex-Spandau Ballet)</strong>,{" "}
-              <strong>ABC</strong>, <strong>Go West</strong> and{" "}
-              <strong>Peter Cox</strong>.
+              <strong>ABC</strong>, <strong>Go West</strong>,{" "}
+              <strong>Peter Cox</strong> and <strong>Nik Kershaw</strong>.
             </p>
           </div>
         </div>
@@ -75,19 +80,26 @@ export default function AboutPage() {
             />
           </div>
           <div>
-            <p className="eyebrow">The founder</p>
-            <h2 className="subhead mt-4">Matt Glover</h2>
+            <p className="eyebrow">Founder &amp; managing partner</p>
+            <h2 className="subhead mt-4">John Glover &middot; Matt Glover</h2>
             <p className="body-lg mt-6">
-              Matt Glover has spent his entire working life in and around
-              British popular music. As a manager, agent and strategic adviser,
-              he has sat in every meeting — from first-demo listening sessions
-              through to stadium routings, label acquisitions, arena-tour
-              settlements and legacy-catalogue deals.
+              <strong>John Glover</strong> founded Blueprint in 1974 and spent
+              the next five decades building a boutique artist management
+              practice rooted in long-horizon relationships — a standard that
+              still defines the firm today. A genuine industry legend, John
+              grew Blueprint alongside his wife{" "}
+              <strong>Julie Glover</strong> and a tight team of music
+              management experts who joined the practice over the years.
             </p>
             <p className="body-lg mt-4">
-              Matt leads Blueprint with a tight partner team. Every artist on
-              the Blueprint roster is worked on directly by a Blueprint partner
-              — never a junior, never a hunter, never a number on a board.
+              Today, Blueprint is led by his son{" "}
+              <strong>Matt Glover</strong>, who has spent his working life in
+              and around British popular music — from first-demo listening
+              sessions through to stadium routings, label acquisitions,
+              arena-tour settlements and legacy-catalogue deals. Every artist
+              on the Blueprint roster is worked on directly by a Blueprint
+              partner — never a junior, never a hunter, never a number on a
+              board.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link

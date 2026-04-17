@@ -74,7 +74,7 @@ export default function Hero({
         className="object-cover"
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/30 to-ink/90" />
+      <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/20 to-ink/80" />
       <div className="absolute inset-0 grain-overlay" />
       <div
         className={`container-editorial relative z-10 h-full flex ${

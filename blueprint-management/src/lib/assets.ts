@@ -7,7 +7,7 @@
 
 const FALLBACKS: Record<string, string> = {
   "home-hero":
-    "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=2400&q=80",
+    "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=2400&q=80",
   "home-legacy":
     "https://images.unsplash.com/photo-1458560871784-56d23406c091?auto=format&fit=crop&w=1600&q=80",
   "home-roster-banner":

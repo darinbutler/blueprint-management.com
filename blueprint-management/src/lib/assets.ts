@@ -36,7 +36,8 @@ const FALLBACKS: Record<string, string> = {
   "artist-peter-cox":
     "https://images.unsplash.com/photo-1501612780327-45045538702b?auto=format&fit=crop&w=1200&q=80",
   "artist-alison-limerick":
-    "https://images.unsplash.com/photo-1516981879613-9f5da904015f?auto=format&fit=crop&w=1200&q=80"
+    "https://images.unsplash.com/photo-1516981879613-9f5da904015f?auto=format&fit=crop&w=1200&q=80",
+  "artist-nik-kershaw": "/roster/nik-kershaw.jpg"
 };
 
 export function assetFor(

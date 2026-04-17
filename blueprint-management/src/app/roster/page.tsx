@@ -18,7 +18,7 @@ export default function RosterPage() {
     <>
       <Hero
         eyebrow="The Blueprint Roster"
-        title="Five artists. Decades of catalogue."
+        title="Six artists. Decades of catalogue."
         lede="Blueprint exclusively represents the following recording artists for worldwide management, touring and agency."
         imageSrc={imageFor("roster-hero")}
         imageAlt="Backstage corridor with dressing room doors in a venue"

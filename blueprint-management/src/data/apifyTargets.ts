@@ -69,6 +69,7 @@ export const feedTargets = [
   { type: "google-news", query: "ABC Martin Fry" },
   { type: "google-news", query: "Go West band tour" },
   { type: "google-news", query: "Alison Limerick house music" },
+  { type: "google-news", query: "Nik Kershaw" },
   { type: "google-news", query: "music manager industry UK" },
   // Industry-body RSS
   { type: "rss", url: "https://themmf.net/feed/" },

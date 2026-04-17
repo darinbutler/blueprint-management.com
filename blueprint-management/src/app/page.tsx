@@ -34,7 +34,8 @@ export default async function HomePage() {
           "ABC",
           "Go West",
           "Peter Cox",
-          "Alison Limerick"
+          "Alison Limerick",
+          "Nik Kershaw"
         ]}
       />
 
@@ -70,7 +71,7 @@ export default async function HomePage() {
                 p: "From the new-romantic era to streaming-era symphonic tours — the reps, the relationships, the receipts."
               },
               {
-                k: "5",
+                k: "6",
                 h: "Artists on the roster",
                 p: "Intentionally small. Every artist gets the managing partner, not a pitch deck."
               },
@@ -107,7 +108,7 @@ export default async function HomePage() {
             <div>
               <p className="eyebrow">The Blueprint roster</p>
               <h2 className="subhead mt-3">
-                Five artists. One standard of care.
+                Six artists. One standard of care.
               </h2>
             </div>
             <Link

@@ -188,6 +188,42 @@ export const artists: Artist[] = [
         "Blueprint Management represents Alison Limerick for worldwide touring, festival headline bookings, sync rights and new music projects.",
       keywords: ["Alison Limerick management", "Where Love Lives", "house music vocalist", "Alison Limerick booking"]
     }
+  },
+  {
+    slug: "nik-kershaw",
+    name: "Nik Kershaw",
+    billing: "Nik Kershaw",
+    tagline: "The songwriter's songwriter. Four decades of craft, from 'The Riddle' to Abbey Road.",
+    bio: "Nik Kershaw broke through in 1984 with a run of global hit singles — 'Wouldn't it Be Good', 'The Riddle' and 'I Won't Let the Sun Go Down on Me' — spending 62 weeks on the UK Singles Chart and performing at Live Aid. He went on to write 'The One and Only' for Chesney Hawkes and has collaborated with Elton John, Sia, Gary Barlow and Bonnie Tyler.",
+    bioLong:
+      "Nik Kershaw exploded onto the UK pop scene in 1984 as a solo artist, scoring a run of global hits that helped him outsell every other solo artist on the UK Singles Chart across 1984 and 1985. After stepping out of the limelight to concentrate on writing and production, Nik penned Chesney Hawkes' generation-defining 'The One and Only' and has collaborated with Elton John (writing and producing on the Duets album), Sia, Gary Barlow and Bonnie Tyler. He has continued to release well-reviewed studio albums — most recently recording his ninth album at Abbey Road Studios with Audio Network — and performs live to a loyal, fervent fanbase at festivals worldwide. Blueprint Management partners with Nik on touring strategy, writing and production catalogue, and long-form career development.",
+    hometown: "Bristol, UK",
+    activeSince: 1984,
+    genres: ["Pop", "Rock", "Singer-Songwriter", "New Wave"],
+    highlights: [
+      "'Wouldn't it Be Good', 'The Riddle', 'I Won't Let the Sun Go Down on Me'",
+      "62 weeks on the UK Singles Chart across 1984–85 — beating every other solo artist",
+      "Wrote 'The One and Only' for Chesney Hawkes (UK No. 1)",
+      "Collaborated with Elton John, Sia, Gary Barlow and Bonnie Tyler",
+      "Performed at Live Aid, 1985",
+      "Ninth studio album recorded at Abbey Road Studios"
+    ],
+    officialUrl: "https://www.nikkershaw.net",
+    socials: [
+      { platform: "Instagram", url: "https://instagram.com/nikkershawofficial" },
+      { platform: "X", url: "https://twitter.com/nikkershaw" },
+      { platform: "Spotify", url: "https://open.spotify.com/artist/3clCGBq4ydKWRyFmIEgwGr" }
+    ],
+    heroPrompt:
+      "Monochrome live stage shot of a solo singer-songwriter mid-performance, stage lights cutting through haze, dramatic side lighting, intimate theatre setting, shot on 35mm film, editorial music photography.",
+    portraitPrompt:
+      "Black-and-white editorial portrait of a seasoned British male singer-songwriter in a dark shirt, warm but weathered features, eyeglasses, microphone in hand, dramatic rim lighting, shot on medium format, magazine quality.",
+    seo: {
+      title: "Nik Kershaw — Official Management | Blueprint",
+      description:
+        "Blueprint Management represents Nik Kershaw — writer of 'The Riddle', 'Wouldn't it Be Good' and 'The One and Only' — for worldwide touring, writing and production projects, and catalogue strategy.",
+      keywords: ["Nik Kershaw management", "The Riddle", "Wouldn't it Be Good", "The One and Only", "Nik Kershaw tour"]
+    }
   }
 ];
 

@@ -32,7 +32,7 @@ export default function AboutPage() {
           <div className="lg:col-span-5">
             <p className="eyebrow">Our story</p>
             <h2 className="subhead mt-4">
-              Fifty years in the room. Five artists in the roster.
+              Fifty years in the room. Six artists in the roster.
             </h2>
           </div>
           <div className="lg:col-span-7 space-y-6 body-lg">

@@ -13,9 +13,6 @@ export const metadata: Metadata = {
   alternates: { canonical: `${siteConfig.url}/blog` }
 };
 
-// Revalidate the feed every hour — Apify refresh updates the underlying cache
-export const revalidate = 3600;
-
 export default async function BlogPage() {
   const feed = await readFeed();
   const [featured, ...rest] = feed;

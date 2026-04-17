@@ -39,32 +39,35 @@ export default async function HomePage() {
         ]}
       />
 
-      {/* Value props — dark, atmospheric, venue-like */}
+      {/* Value props — dark, atmospheric, venue-lit with motion */}
       <section className="relative section bg-ink text-white overflow-hidden">
-        {/* Backdrop: festival stage photography, held low so text reads */}
-        <div className="absolute inset-0 opacity-25">
-          <Image
-            src={imageFor("home-hero")}
-            alt=""
-            fill
-            className="object-cover"
-            sizes="100vw"
-            aria-hidden
-          />
+        {/* Backdrop: festival stage photography with slow Ken Burns pan */}
+        <div className="absolute inset-0 opacity-25 overflow-hidden">
+          <div className="absolute inset-0 animate-ken-burns will-change-transform">
+            <Image
+              src={imageFor("home-hero")}
+              alt=""
+              fill
+              className="object-cover"
+              sizes="100vw"
+              aria-hidden
+            />
+          </div>
         </div>
-        {/* Layered gradients for venue-lighting mood + legibility */}
+        {/* Base gradient for legibility */}
         <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/85 to-ink" />
+        {/* Animated "stage lights" — two radial gradients that breathe */}
         <div
-          className="absolute inset-0 pointer-events-none"
+          className="absolute inset-0 pointer-events-none animate-stagelights will-change-transform"
           style={{
             background:
-              "radial-gradient(80% 60% at 20% 0%, rgba(31,86,224,0.25), transparent 60%), radial-gradient(60% 50% at 100% 100%, rgba(75,128,246,0.18), transparent 70%)"
+              "radial-gradient(80% 60% at 20% 0%, rgba(31,86,224,0.28), transparent 60%), radial-gradient(60% 50% at 100% 100%, rgba(75,128,246,0.22), transparent 70%)"
           }}
         />
         <div className="absolute inset-0 grain-overlay opacity-40 pointer-events-none" />
 
         <div className="container-editorial relative grid lg:grid-cols-12 gap-10 items-start">
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-5 animate-fade-up">
             <p className="eyebrow text-brand-300">Why Blueprint</p>
             <h2 className="subhead mt-4 text-white">
               Most artist management is either too small to know the business —
@@ -113,12 +116,21 @@ export default async function HomePage() {
                 h: "Global reach",
                 p: "London-headquartered. Touring across Europe, North America, Asia-Pacific and Australia."
               }
-            ].map((item) => (
+            ].map((item, i) => (
               <div
                 key={item.h}
-                className="relative p-7 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm hover:border-brand-300/60 hover:bg-white/[0.07] transition-colors"
+                className="card-shimmer group relative p-7 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm opacity-0 animate-fade-up hover:border-brand-300/60 hover:bg-white/[0.08] hover:-translate-y-0.5 transition-all duration-300"
+                style={{
+                  animationDelay: `${150 + i * 120}ms`,
+                  animationFillMode: "forwards"
+                }}
               >
-                <p className="font-display text-5xl text-brand-300">{item.k}</p>
+                <p
+                  className="font-display text-5xl text-brand-300 animate-number-glow"
+                  style={{ animationDelay: `${i * 400}ms` }}
+                >
+                  {item.k}
+                </p>
                 <h3 className="font-display text-xl mt-3 text-white">
                   {item.h}
                 </h3>

@@ -55,7 +55,10 @@ const config: Config = {
       },
       animation: {
         "fade-up": "fadeUp 0.8s ease-out forwards",
-        "ticker": "ticker 40s linear infinite"
+        "ticker": "ticker 40s linear infinite",
+        "stagelights": "stagelights 12s ease-in-out infinite",
+        "ken-burns": "kenBurns 30s ease-in-out infinite alternate",
+        "number-glow": "numberGlow 4s ease-in-out infinite"
       },
       keyframes: {
         fadeUp: {
@@ -65,6 +68,32 @@ const config: Config = {
         ticker: {
           "0%": { transform: "translateX(0%)" },
           "100%": { transform: "translateX(-50%)" }
+        },
+        stagelights: {
+          "0%, 100%": {
+            opacity: "0.7",
+            transform: "translateX(0) translateY(0) scale(1)"
+          },
+          "33%": {
+            opacity: "1",
+            transform: "translateX(2%) translateY(-1%) scale(1.05)"
+          },
+          "66%": {
+            opacity: "0.85",
+            transform: "translateX(-2%) translateY(1%) scale(1.02)"
+          }
+        },
+        kenBurns: {
+          "0%": { transform: "scale(1) translate(0, 0)" },
+          "100%": { transform: "scale(1.08) translate(-1.5%, -1%)" }
+        },
+        numberGlow: {
+          "0%, 100%": {
+            textShadow: "0 0 0 rgba(127, 168, 255, 0)"
+          },
+          "50%": {
+            textShadow: "0 0 24px rgba(127, 168, 255, 0.55)"
+          }
         }
       }
     }

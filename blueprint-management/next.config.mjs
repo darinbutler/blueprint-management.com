@@ -1,29 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export",
   reactStrictMode: true,
   images: {
+    unoptimized: true,
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
-      { protocol: "https", hostname: "generativelanguage.googleapis.com" },
-      { protocol: "https", hostname: "storage.googleapis.com" },
-      { protocol: "https", hostname: "api.apify.com" },
-      { protocol: "https", hostname: "i.scdn.co" },
-      { protocol: "https", hostname: "cdn.blueprint-management.com" }
+      { protocol: "https", hostname: "i.scdn.co" }
     ]
   },
-  async headers() {
-    return [
-      {
-        source: "/(.*)",
-        headers: [
-          { key: "X-Content-Type-Options", value: "nosniff" },
-          { key: "X-Frame-Options", value: "DENY" },
-          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" }
-        ]
-      }
-    ];
-  }
+  trailingSlash: true
 };
 
 export default nextConfig;

@@ -28,9 +28,9 @@ export const siteConfig = {
     ],
     resources: [
       { label: "For Emerging Artists", href: "/for-emerging-artists" },
-      { label: "Artist Development", href: "/services/artist-development" },
-      { label: "Touring & Agency", href: "/services/touring-agency" },
-      { label: "Career Management", href: "/services/career-management" }
+      { label: "What we do", href: "/about" },
+      { label: "Our legacy", href: "/legacy" },
+      { label: "The roster", href: "/roster" }
     ],
     industry: [
       { label: "MMF — Music Managers Forum", href: "https://themmf.net/", external: true },

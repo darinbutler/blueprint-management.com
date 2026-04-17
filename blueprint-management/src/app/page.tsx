@@ -39,31 +39,59 @@ export default async function HomePage() {
         ]}
       />
 
-      {/* Value props */}
-      <section className="section">
-        <div className="container-editorial grid lg:grid-cols-12 gap-10 items-start">
+      {/* Value props — dark, atmospheric, venue-like */}
+      <section className="relative section bg-ink text-white overflow-hidden">
+        {/* Backdrop: festival stage photography, held low so text reads */}
+        <div className="absolute inset-0 opacity-25">
+          <Image
+            src={imageFor("home-hero")}
+            alt=""
+            fill
+            className="object-cover"
+            sizes="100vw"
+            aria-hidden
+          />
+        </div>
+        {/* Layered gradients for venue-lighting mood + legibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/85 to-ink" />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(80% 60% at 20% 0%, rgba(31,86,224,0.25), transparent 60%), radial-gradient(60% 50% at 100% 100%, rgba(75,128,246,0.18), transparent 70%)"
+          }}
+        />
+        <div className="absolute inset-0 grain-overlay opacity-40 pointer-events-none" />
+
+        <div className="container-editorial relative grid lg:grid-cols-12 gap-10 items-start">
           <div className="lg:col-span-5">
-            <p className="eyebrow">Why Blueprint</p>
-            <h2 className="subhead mt-4">
+            <p className="eyebrow text-brand-300">Why Blueprint</p>
+            <h2 className="subhead mt-4 text-white">
               Most artist management is either too small to know the business —
               or too big to know you.
             </h2>
-            <p className="body-lg mt-6">
+            <p className="body-lg mt-6 text-white/80">
               Blueprint sits deliberately between the vanity agency and the
               hunter-led factory. One founder, one small team, one carefully
               chosen roster — and five decades of navigating every seat at the
               industry table.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/about" className="btn-secondary">
-                Our story
+              <Link
+                href="/about"
+                className="btn border border-white/25 text-white hover:bg-white hover:text-ink"
+              >
+                What we do
               </Link>
-              <Link href="/contact" className="btn-ghost">
+              <Link
+                href="/contact"
+                className="text-sm text-white/70 hover:text-white self-center pl-2"
+              >
                 Speak with Matt Glover →
               </Link>
             </div>
           </div>
-          <div className="lg:col-span-7 grid sm:grid-cols-2 gap-6">
+          <div className="lg:col-span-7 grid sm:grid-cols-2 gap-5">
             {[
               {
                 k: "50+",
@@ -81,18 +109,20 @@ export default async function HomePage() {
                 p: "Touring, agency, brand, sync, publishing, PR — coordinated under one partnership."
               },
               {
-                k: "GB → 🌍",
-                h: "UK headquartered",
-                p: "London-based. Working across Europe, North America, Asia-Pacific and Australia."
+                k: "UK",
+                h: "Global reach",
+                p: "London-headquartered. Touring across Europe, North America, Asia-Pacific and Australia."
               }
             ].map((item) => (
               <div
                 key={item.h}
-                className="p-7 rounded-2xl border border-ink/10 bg-canvas-paper hover:border-brand-300/60 transition-colors"
+                className="relative p-7 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm hover:border-brand-300/60 hover:bg-white/[0.07] transition-colors"
               >
-                <p className="font-display text-5xl text-brand-600">{item.k}</p>
-                <h3 className="font-display text-xl mt-3">{item.h}</h3>
-                <p className="text-sm text-ink-soft mt-2 leading-relaxed">
+                <p className="font-display text-5xl text-brand-300">{item.k}</p>
+                <h3 className="font-display text-xl mt-3 text-white">
+                  {item.h}
+                </h3>
+                <p className="text-sm text-white/70 mt-2 leading-relaxed">
                   {item.p}
                 </p>
               </div>

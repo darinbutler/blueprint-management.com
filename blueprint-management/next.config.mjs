@@ -4,7 +4,11 @@ const nextConfig = {
   output: "export",
   reactStrictMode: true,
 
-  // Required for `output: 'export'` — Next's image optimizer can't run on Pages
+  // Site is served from {user}.github.io/blueprint-management.com/
+  // Remove basePath once a custom apex domain is set up and CNAME is in place.
+  basePath: "/blueprint-management.com",
+  assetPrefix: "/blueprint-management.com",
+
   images: {
     unoptimized: true,
     remotePatterns: [
@@ -13,7 +17,6 @@ const nextConfig = {
     ]
   },
 
-  // Produces /path/index.html for cleaner GitHub Pages URLs
   trailingSlash: true
 };
 

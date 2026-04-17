@@ -26,16 +26,22 @@ export default async function HomePage() {
 
       <Marquee
         items={[
-          "50+ years",
-          "Artist-first",
-          "UK based · Global roster",
-          "Founder-led",
-          "Tony Hadley",
-          "ABC",
-          "Go West",
-          "Peter Cox",
-          "Alison Limerick",
-          "Nik Kershaw"
+          { type: "tag", text: "Est. 1974" },
+          { type: "artist", text: "Tony Hadley", href: "/roster/tony-hadley" },
+          { type: "tag", text: "Founder-led" },
+          { type: "artist", text: "ABC", href: "/roster/abc" },
+          { type: "tag", text: "UK based · Global roster" },
+          { type: "artist", text: "Go West", href: "/roster/go-west" },
+          { type: "tag", text: "50+ years" },
+          { type: "artist", text: "Peter Cox", href: "/roster/peter-cox" },
+          { type: "tag", text: "Artist-first" },
+          {
+            type: "artist",
+            text: "Alison Limerick",
+            href: "/roster/alison-limerick"
+          },
+          { type: "tag", text: "Career, not campaign" },
+          { type: "artist", text: "Nik Kershaw", href: "/roster/nik-kershaw" }
         ]}
       />
 

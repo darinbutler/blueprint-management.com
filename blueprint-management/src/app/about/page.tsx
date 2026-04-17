@@ -59,17 +59,37 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Why */}
-      <section className="section bg-canvas-paper border-y border-ink/5">
-        <div className="container-editorial grid lg:grid-cols-12 gap-16 items-start">
+      {/* Why — dark atmospheric block, venue-lit */}
+      <section className="relative section bg-ink text-white overflow-hidden">
+        <div className="absolute inset-0 opacity-25">
+          <Image
+            src={imageFor("home-hero")}
+            alt=""
+            fill
+            className="object-cover"
+            sizes="100vw"
+            aria-hidden
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/85 to-ink" />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(80% 60% at 20% 0%, rgba(31,86,224,0.25), transparent 60%), radial-gradient(60% 50% at 100% 100%, rgba(75,128,246,0.18), transparent 70%)"
+          }}
+        />
+        <div className="absolute inset-0 grain-overlay opacity-40 pointer-events-none" />
+
+        <div className="container-editorial relative grid lg:grid-cols-12 gap-16 items-start">
           <div className="lg:col-span-5">
-            <p className="eyebrow">Why it&apos;s different</p>
-            <h2 className="subhead mt-4">
+            <p className="eyebrow text-brand-300">Why it&apos;s different</p>
+            <h2 className="subhead mt-4 text-white">
               Most artist management is either too small to know the business
               &mdash; or too big to know you.
             </h2>
           </div>
-          <div className="lg:col-span-7 space-y-6 body-lg">
+          <div className="lg:col-span-7 space-y-6 body-lg text-white/80">
             <p>
               Large agencies are built for throughput. They sign widely,
               staff junior, and live or die on a handful of stadium acts
@@ -89,20 +109,40 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Expertise */}
-      <section className="section">
-        <div className="container-editorial">
-          <p className="eyebrow">Expertise</p>
-          <h2 className="subhead mt-4 max-w-3xl">
+      {/* Expertise — dark atmospheric, venue-lit */}
+      <section className="relative section bg-ink text-white overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <Image
+            src={imageFor("home-hero")}
+            alt=""
+            fill
+            className="object-cover"
+            sizes="100vw"
+            aria-hidden
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/85 to-ink" />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(70% 50% at 80% 0%, rgba(31,86,224,0.22), transparent 60%), radial-gradient(60% 50% at 10% 100%, rgba(75,128,246,0.18), transparent 70%)"
+          }}
+        />
+        <div className="absolute inset-0 grain-overlay opacity-40 pointer-events-none" />
+
+        <div className="container-editorial relative">
+          <p className="eyebrow text-brand-300">Expertise</p>
+          <h2 className="subhead mt-4 max-w-3xl text-white">
             Deep specialism across every seat at the industry table.
           </h2>
-          <p className="body-lg mt-5 max-w-3xl text-ink-soft">
+          <p className="body-lg mt-5 max-w-3xl text-white/75">
             Blueprint is small, but the bench is deep. Around the Glover
             family sits a long-standing team of music management experts,
             many of whom have been with the practice for decades. Between
             them, the room covers:
           </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-12">
             {[
               {
                 n: "01",
@@ -137,15 +177,15 @@ export default function AboutPage() {
             ].map((x) => (
               <div
                 key={x.n}
-                className="p-7 rounded-2xl border border-ink/10 bg-canvas-paper"
+                className="relative p-7 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm hover:border-brand-300/60 hover:bg-white/[0.07] transition-colors"
               >
-                <p className="font-display text-4xl text-brand-600">{x.n}</p>
+                <p className="font-display text-4xl text-brand-300">{x.n}</p>
                 <h3
-                  className="font-display text-xl mt-3"
+                  className="font-display text-xl mt-3 text-white"
                   dangerouslySetInnerHTML={{ __html: x.h }}
                 />
                 <p
-                  className="text-sm text-ink-soft mt-2 leading-relaxed"
+                  className="text-sm text-white/70 mt-2 leading-relaxed"
                   dangerouslySetInnerHTML={{ __html: x.p }}
                 />
               </div>

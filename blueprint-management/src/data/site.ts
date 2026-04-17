@@ -16,14 +16,14 @@ export const siteConfig = {
   nav: [
     { label: "Roster", href: "/roster" },
     { label: "About", href: "/about" },
-    { label: "Journal", href: "/blog" },
+    { label: "Activity", href: "/activity" },
     { label: "Contact", href: "/contact" }
   ],
   footerLinks: {
     company: [
       { label: "About Blueprint", href: "/about" },
       { label: "Our Roster", href: "/roster" },
-      { label: "Journal", href: "/blog" },
+      { label: "Activity", href: "/activity" },
       { label: "Contact", href: "/contact" }
     ],
     resources: [

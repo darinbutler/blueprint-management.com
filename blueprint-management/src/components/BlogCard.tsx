@@ -10,8 +10,9 @@ export default function BlogCard({
   size?: "sm" | "md" | "lg";
 }) {
   const isExternal = !!item.sourceUrl;
-const href: string = item.sourceUrl ?? `/blog/${item.slug}`;
+  const href = isExternal ? item.sourceUrl : `/blog/${item.slug}`;
   const aspect = size === "lg" ? "aspect-[16/9]" : "aspect-[4/3]";
+
   return (
     <article className="group card-editorial flex flex-col h-full">
       <Link

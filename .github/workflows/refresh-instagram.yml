@@ -1,0 +1,58 @@
+name: Refresh Instagram activity feed
+
+on:
+  # Every Sunday 02:00 UTC
+  schedule:
+    - cron: "0 2 * * 0"
+  # Manual trigger from the Actions tab
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    # Skip via a repo variable if ever needed (e.g. during quota pauses)
+    if: ${{ vars.SKIP_APIFY_IG != 'true' }}
+    defaults:
+      run:
+        working-directory: blueprint-management
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: blueprint-management/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci || npm install
+
+      - name: Run Instagram refresh
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+        run: |
+          if [ -z "$APIFY_TOKEN" ]; then
+            echo "APIFY_TOKEN not set — skipping"
+            exit 0
+          fi
+          node scripts/refresh-instagram.mjs
+
+      - name: Commit refreshed feed if changed
+        run: |
+          cd ..
+          if git diff --quiet blueprint-management/public/cache/instagram.json blueprint-management/public/cache/ig/; then
+            echo "No changes to commit."
+          else
+            git config user.name "blueprint-activity-bot"
+            git config user.email "bot@blueprint-management.com"
+            git add blueprint-management/public/cache/instagram.json blueprint-management/public/cache/ig/
+            git commit -m "chore: refresh Instagram activity feed"
+            git push
+          fi

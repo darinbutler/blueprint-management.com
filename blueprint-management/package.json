@@ -2,26 +2,25 @@
   "name": "blueprint-management",
   "version": "1.0.0",
   "private": true,
-  "description": "Blueprint Management — boutique artist management website (50+ years of experience).",
+  "description": "Blueprint Management — boutique artist management website (50+ years of experience). Static build for GitHub Pages.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "refresh:apify": "node scripts/refresh-apify.mjs",
-    "refresh:gemini": "node scripts/refresh-gemini.mjs"
+    "refresh:feeds": "node scripts/refresh-feeds.mjs",
+    "refresh:instagram": "node scripts/refresh-instagram.mjs"
   },
   "dependencies": {
-    "apify-client": "^2.9.7",
     "next": "14.2.15",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "resend": "^4.0.1"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@types/node": "^20.12.12",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "apify-client": "^2.9.7",
     "autoprefixer": "^10.4.19",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.2.15",

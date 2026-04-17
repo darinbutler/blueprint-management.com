@@ -13,6 +13,10 @@ export const metadata: Metadata = {
   alternates: { canonical: `${siteConfig.url}/blog` }
 };
 
+// Static-site build — the feed is read from public/cache/feeds.json at build time.
+// To refresh, run `npm run refresh:feeds` locally (or via GitHub Actions) and
+// redeploy. Revalidate exports are not supported in static export mode.
+
 export default async function BlogPage() {
   const feed = await readFeed();
   const [featured, ...rest] = feed;

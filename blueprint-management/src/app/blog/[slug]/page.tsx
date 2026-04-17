@@ -6,13 +6,6 @@ import { readFeed } from "@/lib/feeds";
 import { siteConfig } from "@/data/site";
 import InlineCTA from "@/components/InlineCTA";
 
-export async function generateStaticParams() {
-  const feed = await readFeed();
-  return feed
-    .filter((f) => !f.sourceUrl)
-    .map((f) => ({ slug: f.slug }));
-}
-
 export async function generateMetadata({
   params
 }: {

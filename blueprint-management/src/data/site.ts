@@ -11,7 +11,7 @@ export const siteConfig = {
     email: "butlerdarin@gmail.com",
     // Update in production
     phone: "+44 (0)20 0000 0000",
-    address: "London, United Kingdom"
+    address: "71\u201375 Shelton Street, Covent Garden, London WC2H 9JQ"
   },
   nav: [
     { label: "Roster", href: "/roster" },

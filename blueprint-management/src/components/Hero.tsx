@@ -65,7 +65,7 @@ export default function Hero({
   }
 
   return (
-    <section className="relative h-[88vh] min-h-[640px] bg-ink text-white overflow-hidden">
+    <section className="relative h-screen min-h-[820px] bg-ink text-white overflow-hidden">
       <Image
         src={imageSrc}
         alt={imageAlt}

@@ -7,7 +7,7 @@
 
 const FALLBACKS: Record<string, string> = {
   "home-hero":
-    "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?auto=format&fit=crop&w=2400&q=80",
+    "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=2400&q=80",
   "home-legacy":
     "https://images.unsplash.com/photo-1458560871784-56d23406c091?auto=format&fit=crop&w=1600&q=80",
   "home-roster-banner":
@@ -21,7 +21,7 @@ const FALLBACKS: Record<string, string> = {
   "emerging-artists":
     "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1600&q=80",
   "contact-hero":
-    "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2400&q=80",
+    "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=2400&q=80",
   "blog-hero":
     "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=2400&q=80",
   "journal-article-fallback":

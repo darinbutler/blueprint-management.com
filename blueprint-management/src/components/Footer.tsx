@@ -45,23 +45,40 @@ export default function Footer() {
         <FooterColumn title="Legal" items={footerLinks.legal} />
       </div>
 
-      <div className="container-editorial relative border-t border-white/10 py-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-3 text-xs text-white/50">
+      <div className="container-editorial relative border-t border-white/10 py-8 flex flex-col gap-5 text-xs text-white/50">
+        <div className="grid md:grid-cols-[2fr_1fr] gap-6">
+          <p className="leading-relaxed max-w-3xl">
+            {siteConfig.name} is a boutique artist management company based at
+            71&ndash;75 Shelton Street, Covent Garden, London WC2H 9JQ.
+            Registered in England &amp; Wales. All artist names, logos and
+            trademarks referenced on this site remain the property of their
+            respective owners. Blueprint receives a high volume of unsolicited
+            material &mdash; we listen to everything submitted but cannot
+            guarantee a response to every enquiry. Submission of any material
+            does not create a management, agency or representation agreement;
+            representation is only established in writing. Nothing on this site
+            constitutes legal, financial or investment advice.
+          </p>
+          <p className="md:text-right">
+            <Link href="/privacy" className="hover:text-white">
+              Privacy
+            </Link>
+            <span className="mx-2">&middot;</span>
+            <Link href="/cookies" className="hover:text-white">
+              Cookies
+            </Link>
+            <span className="mx-2">&middot;</span>
+            <Link href="/terms" className="hover:text-white">
+              Terms
+            </Link>
+            <span className="mx-2">&middot;</span>
+            <Link href="/sitemap.xml" className="hover:text-white">
+              Sitemap
+            </Link>
+          </p>
+        </div>
         <p>
-          © {year} {siteConfig.name}. All rights reserved. Registered in England
-          &amp; Wales.
-        </p>
-        <p>
-          <Link href="/privacy" className="hover:text-white">
-            Privacy
-          </Link>
-          <span className="mx-2">·</span>
-          <Link href="/terms" className="hover:text-white">
-            Terms
-          </Link>
-          <span className="mx-2">·</span>
-          <Link href="/sitemap.xml" className="hover:text-white">
-            Sitemap
-          </Link>
+          &copy; {year} {siteConfig.name}. All rights reserved.
         </p>
       </div>
     </footer>

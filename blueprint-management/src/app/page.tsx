@@ -19,7 +19,7 @@ export default async function HomePage() {
         title="Careers, not campaigns."
         lede="A boutique artist management company with over 50 years of experience, based in the United Kingdom — representing a select roster of world-class recording artists and the emerging voices who deserve real partnership."
         imageSrc={imageFor("home-hero")}
-        imageAlt="A silhouetted artist walking onto a stadium stage filled with fans"
+        imageAlt="Live music festival stage with stage lights and packed crowd"
         primaryCta={{ label: "Enquire with Blueprint", href: "/contact" }}
         secondaryCta={{ label: "Meet the roster", href: "/roster" }}
       />

@@ -20,14 +20,9 @@ export default function ContactPage() {
           <div className="lg:col-span-7 order-2 lg:order-1">
             <p className="eyebrow">Contact Blueprint</p>
             <h1 className="headline mt-3">
-              Tell us what you're building. We'll reply within two business
-              days.
+              Drop us a line using the contact form opposite. We can&apos;t
+              respond to all unsolicited demos — but do listen to everything.
             </h1>
-            <p className="body-lg mt-5 max-w-2xl">
-              Whether you're booking a Blueprint artist, looking for management
-              representation as an emerging or established artist, or exploring
-              a brand partnership — start here.
-            </p>
 
             <div className="mt-10 p-8 md:p-10 rounded-2xl border border-ink/10 bg-canvas-paper shadow-editorial">
               <ContactForm enquiryType="Contact page" />
@@ -39,7 +34,7 @@ export default function ContactPage() {
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
                 <Image
                   src={imageFor("contact-hero")}
-                  alt="Minimalist London office interior at dusk"
+                  alt="Festival stage at dusk with crowd and stage lights"
                   fill
                   priority
                   className="object-cover"
@@ -47,26 +42,19 @@ export default function ContactPage() {
                 />
               </div>
               <div className="p-6 rounded-2xl border border-ink/10 bg-canvas-paper">
-                <h2 className="font-display text-xl">Direct contact</h2>
+                <h2 className="font-display text-xl">Blueprint office</h2>
                 <dl className="mt-4 space-y-3 text-sm">
                   <div>
-                    <dt className="text-ink-muted">Management enquiries</dt>
+                    <dt className="text-ink-muted">Address</dt>
                     <dd>
-                      <a
-                        href={`mailto:${siteConfig.contact.email}`}
-                        className="text-brand-600 link-underline"
-                      >
-                        {siteConfig.contact.email}
-                      </a>
+                      71&ndash;75 Shelton Street<br />
+                      Covent Garden<br />
+                      London WC2H 9JQ
                     </dd>
                   </div>
                   <div>
-                    <dt className="text-ink-muted">Office</dt>
-                    <dd>{siteConfig.contact.address}</dd>
-                  </div>
-                  <div>
                     <dt className="text-ink-muted">Hours</dt>
-                    <dd>Mon–Fri · 09:30 – 18:00 GMT</dd>
+                    <dd>Mon&ndash;Fri &middot; 09:30 &ndash; 18:00 GMT</dd>
                   </div>
                 </dl>
               </div>

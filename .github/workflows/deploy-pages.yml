@@ -1,10 +1,8 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Run on every push to main
   push:
     branches: [main]
-  # Allow manual runs from the Actions tab
   workflow_dispatch:
 
 permissions:
@@ -40,6 +38,9 @@ jobs:
           NEXT_PUBLIC_SITE_URL: https://blueprint-management.com
           NEXT_PUBLIC_SITE_NAME: Blueprint Management
           NEXT_PUBLIC_WEB3FORMS_KEY: ${{ secrets.WEB3FORMS_KEY }}
+
+      - name: Ensure .nojekyll in output
+        run: touch out/.nojekyll
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

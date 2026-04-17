@@ -16,11 +16,11 @@
  * Required secrets (configure in GitHub Actions):
  *   SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET — Spotify Web API
  *   YOUTUBE_API_KEY                          — YouTube Data API v3
- *   BANDSINTOWN_APP_ID (optional)            — any string works; defaults to site URL
+ *   TICKETMASTER_API_KEY                     — Ticketmaster Discovery API
  *
  * Usage:
  *   SPOTIFY_CLIENT_ID=... SPOTIFY_CLIENT_SECRET=... YOUTUBE_API_KEY=... \
- *     node scripts/refresh-commercial-signal.mjs
+ *     TICKETMASTER_API_KEY=... node scripts/refresh-commercial-signal.mjs
  */
 
 import fs from "node:fs/promises";
@@ -32,7 +32,7 @@ const MANIFEST = path.join(OUT_DIR, "commercial-signal.json");
 const SPOTIFY_ID = process.env.SPOTIFY_CLIENT_ID;
 const SPOTIFY_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
 const YT_KEY = process.env.YOUTUBE_API_KEY;
-const BIT_APP_ID = process.env.BANDSINTOWN_APP_ID ?? "blueprint-management.com";
+const TM_KEY = process.env.TICKETMASTER_API_KEY;
 
 /**
  * Roster targets. Only the artist name is required — the script resolves
@@ -46,35 +46,35 @@ const ARTISTS = [
     name: "Tony Hadley",
     spotifyId: null,
     youtubeChannelId: null,
-    bandsintownName: "Tony Hadley"
+    tmKeyword: "Tony Hadley"
   },
   {
     slug: "abc",
     name: "ABC Martin Fry",
     spotifyId: null,
     youtubeChannelId: null,
-    bandsintownName: "ABC"
+    tmKeyword: "ABC Martin Fry"
   },
   {
     slug: "go-west",
     name: "Go West",
     spotifyId: null,
     youtubeChannelId: null,
-    bandsintownName: "Go West"
+    tmKeyword: "Go West"
   },
   {
     slug: "peter-cox",
     name: "Peter Cox",
     spotifyId: null,
     youtubeChannelId: null,
-    bandsintownName: "Peter Cox"
+    tmKeyword: "Peter Cox"
   },
   {
     slug: "alison-limerick",
     name: "Alison Limerick",
     spotifyId: null,
     youtubeChannelId: null,
-    bandsintownName: "Alison Limerick"
+    tmKeyword: "Alison Limerick"
   },
   {
     slug: "nik-kershaw",
@@ -82,7 +82,7 @@ const ARTISTS = [
     // Pinned from artists.ts socials
     spotifyId: "3clCGBq4ydKWRyFmIEgwGr",
     youtubeChannelId: null,
-    bandsintownName: "Nik Kershaw"
+    tmKeyword: "Nik Kershaw"
   }
 ];
 
@@ -233,35 +233,59 @@ async function youtubeForArtist(artist) {
   };
 }
 
-// ───────────────── Bandsintown ─────────────────
+// ───────────────── Ticketmaster Discovery ─────────────────
 
-async function bitForArtist(artist) {
+async function tmForArtist(artist) {
+  if (!TM_KEY) return null;
   try {
-    const res = await fetch(
-      `https://rest.bandsintown.com/artists/${encodeURIComponent(
-        artist.bandsintownName
-      )}/events?app_id=${encodeURIComponent(BIT_APP_ID)}&date=upcoming`,
-      { redirect: "follow" }
-    );
-    if (!res.ok) return null;
-    const events = await res.json();
-    if (!Array.isArray(events)) return null;
+    const url =
+      `https://app.ticketmaster.com/discovery/v2/events.json` +
+      `?keyword=${encodeURIComponent(artist.tmKeyword)}` +
+      `&classificationName=music` +
+      `&size=10&sort=date,asc` +
+      `&apikey=${encodeURIComponent(TM_KEY)}`;
+    const res = await fetch(url);
+    if (!res.ok) {
+      console.warn(`  ✗ Ticketmaster ${artist.name}: ${res.status}`);
+      return null;
+    }
+    const j = await res.json();
+    const events = j?._embedded?.events ?? [];
+    const filtered = events.filter((e) => {
+      // Match artist name against returned attractions to filter unrelated bookings
+      const names =
+        e?._embedded?.attractions?.map((a) =>
+          String(a?.name ?? "").toLowerCase()
+        ) ?? [];
+      const needle = artist.tmKeyword.toLowerCase();
+      return names.some(
+        (n) =>
+          n === needle ||
+          n.includes(needle) ||
+          needle.includes(n)
+      );
+    });
+    const pool = filtered.length ? filtered : events;
     return {
-      url: `https://www.bandsintown.com/a/${encodeURIComponent(
-        artist.bandsintownName
+      url: `https://www.ticketmaster.com/search?q=${encodeURIComponent(
+        artist.tmKeyword
       )}`,
-      upcomingCount: events.length,
-      events: events.slice(0, 6).map((e) => ({
-        datetime: e.datetime,
-        venue: e?.venue?.name,
-        city: e?.venue?.city,
-        region: e?.venue?.region,
-        country: e?.venue?.country,
-        url: e.url
-      }))
+      upcomingCount: pool.length,
+      events: pool.slice(0, 6).map((e) => {
+        const v = e?._embedded?.venues?.[0];
+        const start = e?.dates?.start;
+        return {
+          datetime: start?.dateTime ?? `${start?.localDate}T${start?.localTime ?? "00:00:00"}`,
+          venue: v?.name,
+          city: v?.city?.name,
+          region: v?.state?.name ?? v?.state?.stateCode,
+          country: v?.country?.name ?? v?.country?.countryCode,
+          url: e.url
+        };
+      })
     };
   } catch (err) {
-    console.warn(`  ✗ Bandsintown ${artist.name}: ${err.message}`);
+    console.warn(`  ✗ Ticketmaster ${artist.name}: ${err.message}`);
     return null;
   }
 }
@@ -271,9 +295,9 @@ async function bitForArtist(artist) {
 async function main() {
   await fs.mkdir(OUT_DIR, { recursive: true });
   console.log("Sources available:");
-  console.log(`  Spotify:     ${SPOTIFY_ID ? "✓" : "skip (no creds)"}`);
-  console.log(`  YouTube:     ${YT_KEY ? "✓" : "skip (no creds)"}`);
-  console.log(`  Bandsintown: ✓`);
+  console.log(`  Spotify:      ${SPOTIFY_ID ? "✓" : "skip (no creds)"}`);
+  console.log(`  YouTube:      ${YT_KEY ? "✓" : "skip (no creds)"}`);
+  console.log(`  Ticketmaster: ${TM_KEY ? "✓" : "skip (no creds)"}`);
   console.log();
 
   const out = {};
@@ -288,8 +312,8 @@ async function main() {
         console.warn(`  ✗ youtube: ${e.message}`);
         return null;
       }),
-      bitForArtist(a).catch((e) => {
-        console.warn(`  ✗ bandsintown: ${e.message}`);
+      tmForArtist(a).catch((e) => {
+        console.warn(`  ✗ ticketmaster: ${e.message}`);
         return null;
       })
     ]);

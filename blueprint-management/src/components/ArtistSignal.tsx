@@ -144,7 +144,7 @@ export default function ArtistSignal({
           {/* Tours */}
           <SignalColumn
             title="Upcoming shows"
-            source="Bandsintown"
+            source="Ticketmaster"
             sourceUrl={signal.tours?.url}
             stat={
               signal.tours?.upcomingCount

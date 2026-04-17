@@ -57,7 +57,8 @@ const SEED_POSTS: FeedItem[] = [
     category: "From Blueprint",
     source: "Blueprint Journal",
     publishedAt: new Date().toISOString(),
-    image: "/generated/blog-hero.jpg"
+    image:
+      "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1600&q=80"
   },
   {
     slug: "emerging-artists-real-partnership",
@@ -67,7 +68,8 @@ const SEED_POSTS: FeedItem[] = [
     category: "Industry",
     source: "Blueprint Journal",
     publishedAt: new Date(Date.now() - 86_400_000 * 7).toISOString(),
-    image: "/generated/emerging-artists.jpg"
+    image:
+      "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1600&q=80"
   },
   {
     slug: "tony-hadley-symphonic-return",
@@ -77,6 +79,7 @@ const SEED_POSTS: FeedItem[] = [
     category: "Artist News",
     source: "Blueprint Journal",
     publishedAt: new Date(Date.now() - 86_400_000 * 14).toISOString(),
-    image: "/generated/journal-article-fallback.jpg"
+    image:
+      "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?auto=format&fit=crop&w=1600&q=80"
   }
 ];

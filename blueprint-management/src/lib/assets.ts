@@ -71,12 +71,30 @@ export function fallback(id: string): string {
 }
 
 /**
- * Returns the preferred image path, with a guarantee that the URL resolves
- * (via Unsplash fallback) even before Gemini has been run.
+ * Site base path. When deployed under /blueprint-management.com/ on GitHub
+ * Pages we need to manually prepend this to local image src values —
+ * Next's <Image /> component does NOT apply basePath automatically when
+ * `images.unoptimized: true` (required for static export).
+ *
+ * Set to "" once the site is served from an apex domain (custom CNAME).
+ */
+export const SITE_BASE_PATH = "/blueprint-management.com";
+
+/** Prepend basePath to root-relative paths; pass external URLs through. */
+export function withBase(src: string): string {
+  if (!src.startsWith("/")) return src;
+  if (!SITE_BASE_PATH) return src;
+  if (src.startsWith(SITE_BASE_PATH + "/") || src === SITE_BASE_PATH) return src;
+  return SITE_BASE_PATH + src;
+}
+
+/**
+ * Returns a fully-qualified image URL (either an absolute Unsplash fallback
+ * or a local /roster/*.jpg prefixed with the site's basePath).
  *
  * Flag USE_GENERATED=true when /public/generated is populated.
  */
 export function imageFor(id: string): string {
-  if (process.env.USE_GENERATED === "true") return assetFor(id);
-  return fallback(id);
+  if (process.env.USE_GENERATED === "true") return withBase(assetFor(id));
+  return withBase(fallback(id));
 }

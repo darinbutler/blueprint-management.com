@@ -23,7 +23,10 @@ export default function BlogCard({
       >
         <div className={`relative ${aspect} overflow-hidden bg-ink`}>
           <Image
-            src={item.image || "/generated/journal-article-fallback.jpg"}
+            src={
+              item.image ||
+              "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?auto=format&fit=crop&w=1600&q=80"
+            }
             alt={item.title}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

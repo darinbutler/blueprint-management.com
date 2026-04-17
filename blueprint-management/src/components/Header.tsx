@@ -47,9 +47,6 @@ export default function Header() {
               </Link>
             );
           })}
-          <Link href="/contact" className="btn-primary text-sm">
-            Enquire
-          </Link>
         </nav>
         <button
           type="button"
@@ -87,9 +84,6 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
-            <Link href="/contact" className="btn-primary w-full">
-              Enquire
-            </Link>
           </div>
         </div>
       )}

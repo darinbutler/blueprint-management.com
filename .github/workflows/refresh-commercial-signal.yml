@@ -1,0 +1,53 @@
+name: Refresh commercial signal
+
+on:
+  # Weekly: Sunday 03:00 UTC
+  schedule:
+    - cron: "0 3 * * 0"
+  # Manual trigger from the Actions tab
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    if: ${{ vars.SKIP_COMMERCIAL_SIGNAL != 'true' }}
+    defaults:
+      run:
+        working-directory: blueprint-management
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Refresh commercial signal
+        env:
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          BANDSINTOWN_APP_ID: blueprint-management.com
+        run: node scripts/refresh-commercial-signal.mjs
+
+      - name: Commit refreshed manifest if changed
+        run: |
+          cd ..
+          if git diff --quiet blueprint-management/public/cache/commercial-signal.json; then
+            echo "No changes to commit."
+          else
+            git config user.name "blueprint-signal-bot"
+            git config user.email "bot@blueprint-management.com"
+            git add blueprint-management/public/cache/commercial-signal.json
+            git commit -m "chore: refresh commercial signal (Spotify + YouTube + tours)"
+            git push
+          fi

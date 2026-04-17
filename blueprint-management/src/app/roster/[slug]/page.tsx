@@ -6,9 +6,11 @@ import Script from "next/script";
 import CTASection from "@/components/CTASection";
 import InlineCTA from "@/components/InlineCTA";
 import SocialIcons from "@/components/SocialIcons";
+import ArtistSignal from "@/components/ArtistSignal";
 import { artists, getArtistBySlug } from "@/data/artists";
 import { imageFor } from "@/lib/assets";
 import { siteConfig } from "@/data/site";
+import { getArtistSignal } from "@/lib/commercialSignal";
 
 export async function generateStaticParams() {
   return artists.map((a) => ({ slug: a.slug }));
@@ -34,9 +36,14 @@ export async function generateMetadata({
   };
 }
 
-export default function ArtistPage({ params }: { params: { slug: string } }) {
+export default async function ArtistPage({
+  params
+}: {
+  params: { slug: string };
+}) {
   const artist = getArtistBySlug(params.slug);
   if (!artist) notFound();
+  const signal = await getArtistSignal(params.slug);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -154,6 +161,8 @@ export default function ArtistPage({ params }: { params: { slug: string } }) {
           </aside>
         </div>
       </section>
+
+      <ArtistSignal signal={signal} artistName={artist.name} />
 
       <CTASection
         eyebrow={`Book ${artist.name}`}

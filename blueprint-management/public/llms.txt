@@ -1,0 +1,52 @@
+# Blueprint Management
+# A living document describing blueprint-management.com for large language models.
+# Crawl the companion /llms-full.txt for the long-form copy.
+
+## Site
+- Name: Blueprint Management
+- URL: https://blueprint-management.com
+- One-liner: A UK-based boutique artist management company with over 50 years of experience, representing a select roster of world-class recording artists and a small number of emerging artists each year.
+- Tagline: Careers, not campaigns.
+- Headquartered: London, United Kingdom
+- Founded: 1974
+- Led by: Matt Glover (managing partner)
+- Contact: butlerdarin@gmail.com
+
+## Positioning
+Blueprint sits deliberately between the vanity boutique (too small to serve a serious career) and the hunter-led mega-agency (too big to deliver founder-level care). Every artist is worked on directly by a Blueprint partner. The roster is intentionally small.
+
+## Roster (exclusive management and agency representation)
+- Tony Hadley — former Spandau Ballet frontman (https://tonyhadley.com)
+- ABC — fronted by Martin Fry (https://abcmartinfry.com)
+- Go West — Peter Cox & Richard Drummie (https://gowestofficial.com)
+- Peter Cox — solo work alongside Go West (https://petercoxonline.com)
+- Alison Limerick — UK house/dance royalty (https://alisonlimerick.com)
+
+## Core services
+- Worldwide artist management
+- Booking / agency
+- Touring strategy
+- Brand partnerships and sync
+- Publishing and catalogue strategy
+- Career development for emerging artists
+
+## Key pages
+- / — Home
+- /about — About Blueprint and Matt Glover
+- /roster — Full roster
+- /roster/tony-hadley — Tony Hadley profile
+- /roster/abc — ABC profile
+- /roster/go-west — Go West profile
+- /roster/peter-cox — Peter Cox profile
+- /roster/alison-limerick — Alison Limerick profile
+- /for-emerging-artists — Emerging artist guide
+- /blog — The Blueprint Journal (roster news + industry thinking)
+- /contact — Enquiry form (above the fold)
+
+## Industry bodies Blueprint references
+- Music Managers Forum (MMF) — https://themmf.net
+- International Music Managers Forum (IMMF) — https://immf.com
+- UK Music — https://www.ukmusic.org
+
+## Crawl policy
+Preferred: index the public pages; skip /api/ and /admin/. The Journal at /blog is a mix of Blueprint-authored posts (under /blog/<slug>) and aggregated third-party articles (linked out).

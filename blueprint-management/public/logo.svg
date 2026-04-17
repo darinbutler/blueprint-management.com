@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 120" role="img" aria-label="Blueprint Management">
+  <title>Blueprint Management</title>
+  <defs>
+    <style>
+      .b { font-family: 'Fraunces', 'Playfair Display', Georgia, serif; font-weight: 900; letter-spacing: -0.04em; }
+      .m { font-family: 'Inter', system-ui, sans-serif; font-weight: 500; letter-spacing: 0.2em; }
+    </style>
+  </defs>
+  <text x="10" y="78" class="b" font-size="80" fill="#143db8">blueprint</text>
+  <text x="14" y="104" class="m" font-size="14" fill="#0a0a0f">M A N A G E M E N T</text>
+</svg>

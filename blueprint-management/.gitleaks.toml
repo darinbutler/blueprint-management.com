@@ -1,0 +1,35 @@
+# Gitleaks custom config for Blueprint Management.
+# Adds provider-specific rules on top of gitleaks' defaults.
+
+title = "Blueprint Management gitleaks config"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "resend-api-key"
+description = "Resend API key"
+regex = '''re_[A-Za-z0-9]{24,}'''
+tags = ["key", "resend"]
+
+[[rules]]
+id = "apify-token"
+description = "Apify API token"
+regex = '''apify_api_[A-Za-z0-9]{20,}'''
+tags = ["key", "apify"]
+
+[[rules]]
+id = "google-api-key"
+description = "Google API key"
+regex = '''AIza[0-9A-Za-z\-_]{35}'''
+tags = ["key", "google"]
+
+[allowlist]
+description = "Allow .env.example placeholders and docs"
+paths = [
+  '''\.env\.example''',
+  '''SECURITY\.md''',
+  '''README\.md''',
+  '''\.gitleaks\.toml''',
+  '''scripts/scan-secrets\.mjs'''
+]

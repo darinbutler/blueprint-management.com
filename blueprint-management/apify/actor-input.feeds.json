@@ -1,0 +1,7 @@
+{
+  "_comment": "Sample input for the Google News actor. Run once per roster artist to populate the Journal.",
+  "query": "Tony Hadley",
+  "language": "en",
+  "region": "GB",
+  "maxItems": 15
+}

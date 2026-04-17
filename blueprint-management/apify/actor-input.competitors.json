@@ -1,0 +1,14 @@
+{
+  "_comment": "Apify web-scraper input for the competitor IA research use-case. Feed into apify~web-scraper or fork and customise.",
+  "startUrls": [
+    { "url": "https://www.xtremetalentagency.com/" },
+    { "url": "https://soundartistmanagement.com/" },
+    { "url": "https://variousartistsmanagement.com/" },
+    { "url": "https://www.authoritymgmt.com/" },
+    { "url": "https://www.unitedtalent.com/brands" }
+  ],
+  "linkSelector": "",
+  "pageFunction": "async function pageFunction(context) { const { $, request } = context; const nav = []; $('nav a, header a').each((_, el) => { const text = $(el).text().trim(); if (text) nav.push(text); }); const headlines = []; $('main h1, main h2, main h3, section h1, section h2').each((_, el) => { const text = $(el).text().trim(); if (text) headlines.push(text); }); return { url: request.url, nav: Array.from(new Set(nav)).slice(0, 40), headlines: Array.from(new Set(headlines)).slice(0, 40), hero: $('section:first-of-type h1').text().trim() }; }",
+  "maxRequestsPerCrawl": 15,
+  "proxyConfiguration": { "useApifyProxy": true }
+}

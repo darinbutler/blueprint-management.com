@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import Script from "next/script";
 import CTASection from "@/components/CTASection";
 import InlineCTA from "@/components/InlineCTA";
+import SocialIcons from "@/components/SocialIcons";
 import { artists, getArtistBySlug } from "@/data/artists";
 import { imageFor } from "@/lib/assets";
 import { siteConfig } from "@/data/site";
@@ -145,18 +146,9 @@ export default function ArtistPage({ params }: { params: { slug: string } }) {
                   </a>
                 </dd>
               </dl>
-              <div className="mt-5 flex flex-wrap gap-3">
-                {artist.socials.map((s) => (
-                  <a
-                    key={s.platform}
-                    href={s.url}
-                    target="_blank"
-                    rel="noopener"
-                    className="text-xs uppercase tracking-wider2 text-ink hover:text-brand-600"
-                  >
-                    {s.platform} ↗
-                  </a>
-                ))}
+              <div className="mt-5">
+                <p className="eyebrow text-ink-muted mb-3">Follow</p>
+                <SocialIcons socials={artist.socials} />
               </div>
             </div>
           </aside>

@@ -5,7 +5,6 @@ import CTASection from "@/components/CTASection";
 import ArtistCard from "@/components/ArtistCard";
 import BlogCard from "@/components/BlogCard";
 import Marquee from "@/components/Marquee";
-import ActivityStrip from "@/components/ActivityStrip";
 import { artists } from "@/data/artists";
 import { readFeed } from "@/lib/feeds";
 import { imageFor } from "@/lib/assets";
@@ -38,9 +37,6 @@ export default async function HomePage() {
           "Alison Limerick"
         ]}
       />
-
-      {/* Live activity — renders nothing before the first scrape populates the cache */}
-      <ActivityStrip />
 
       {/* Value props */}
       <section className="section">

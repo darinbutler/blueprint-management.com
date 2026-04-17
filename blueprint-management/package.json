@@ -8,8 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "refresh:feeds": "node scripts/refresh-feeds.mjs",
-    "refresh:instagram": "node scripts/refresh-instagram.mjs"
+    "refresh:feeds": "node scripts/refresh-feeds.mjs"
   },
   "dependencies": {
     "next": "14.2.15",

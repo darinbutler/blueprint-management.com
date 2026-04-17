@@ -20,8 +20,7 @@ export default function ContactPage() {
           <div className="lg:col-span-7 order-2 lg:order-1">
             <p className="eyebrow">Contact Blueprint</p>
             <h1 className="font-display tracking-tight leading-tight text-3xl md:text-4xl lg:text-5xl mt-3 max-w-2xl">
-              Drop us a line using the contact form opposite. We can&apos;t
-              respond to all unsolicited demos — but do listen to everything.
+              Drop us a line using the contact form below.
             </h1>
 
             <div className="mt-10 p-8 md:p-10 rounded-2xl border border-ink/10 bg-canvas-paper shadow-editorial">

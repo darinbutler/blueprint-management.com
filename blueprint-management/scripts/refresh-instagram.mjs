@@ -37,7 +37,7 @@ const TARGETS = [
 ];
 
 const POSTS_PER_ARTIST = 12;
-const ACTOR = process.env.APIFY_IG_ACTOR ?? "apify~instagram-post-scraper";
+const ACTOR = process.env.APIFY_IG_ACTOR ?? "apify~instagram-scraper";
 
 const OUT_DIR = path.join(process.cwd(), "public", "cache");
 const IMG_DIR = path.join(OUT_DIR, "ig");
@@ -73,9 +73,11 @@ function extFromUrl(url, fallback = "jpg") {
 async function scrapeArtist(target) {
   console.log(`→ ${target.name} (@${target.handle})`);
   const run = await client.actor(ACTOR).call({
-    username: [target.handle],
+    directUrls: [`https://www.instagram.com/${target.handle}/`],
+    resultsType: "posts",
     resultsLimit: POSTS_PER_ARTIST,
-    // Keep output minimal; we only need display URL + permalink + timestamp.
+    searchType: "user",
+    searchLimit: 1,
     addParentData: false
   });
   const { items } = await client

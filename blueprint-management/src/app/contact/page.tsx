@@ -19,7 +19,7 @@ export default function ContactPage() {
         <div className="container-editorial grid lg:grid-cols-12 gap-10 lg:gap-16 py-16 md:py-24">
           <div className="lg:col-span-7 order-2 lg:order-1">
             <p className="eyebrow">Contact Blueprint</p>
-            <h1 className="headline mt-3">
+            <h1 className="font-display tracking-tight leading-tight text-3xl md:text-4xl lg:text-5xl mt-3 max-w-2xl">
               Drop us a line using the contact form opposite. We can&apos;t
               respond to all unsolicited demos — but do listen to everything.
             </h1>
